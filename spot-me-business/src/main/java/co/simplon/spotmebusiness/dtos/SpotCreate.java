@@ -15,7 +15,7 @@ public record SpotCreate(@NotBlank @Size(max = 200) String name,
 	@Size(max = 2000) String description,
 	@NotNull @Min(-90) @Max(90) Double lat,
 	@NotNull @Min(-180) @Max(180) Double lng, @FileType(types = {
-		MediaType.IMAGE_GIF_VALUE, MediaType.IMAGE_JPEG_VALUE,
+		MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_GIF_VALUE,
 		MediaType.IMAGE_PNG_VALUE })
 	@FileSize(max = FileSize.TWO_MB) MultipartFile image){
 }
