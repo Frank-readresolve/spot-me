@@ -15,7 +15,7 @@ public class FileTypeValidator
 
     @Override
     public void initialize(FileType annotation) {
-	types = annotation.types(); // JPEG, GIF, PNG
+	types = annotation.types();
     }
 
     @Override
@@ -24,7 +24,7 @@ public class FileTypeValidator
 	if (file == null) {
 	    return true;
 	}
-	String contentType = file.getContentType(); // image/png
+	String contentType = file.getContentType();
 	return Arrays.stream(types)
 		.anyMatch((type) -> type.equals(MediaType.ALL_VALUE)
 			|| type.equals(contentType));

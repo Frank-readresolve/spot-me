@@ -8,9 +8,12 @@ import org.springframework.stereotype.Repository;
 import co.simplon.spotmebusiness.dtos.SpotView;
 import co.simplon.spotmebusiness.entities.Spot;
 
-@Repository // Optional
+@Repository
 public interface SpotRepository extends JpaRepository<Spot, Long> {
 
     Collection<SpotView> findAllProjectedBy();
+
+    boolean existsByNameIgnoreCaseAndLatAndLng(String name, double lat,
+	    double lng);
 
 }

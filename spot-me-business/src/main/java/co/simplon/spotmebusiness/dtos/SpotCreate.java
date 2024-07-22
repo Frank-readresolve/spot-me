@@ -5,12 +5,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import co.simplon.spotmebusiness.validation.FileSize;
 import co.simplon.spotmebusiness.validation.FileType;
+import co.simplon.spotmebusiness.validation.SpotUnique;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+@SpotUnique
 public record SpotCreate(@NotBlank @Size(max = 200) String name,
 	@Size(max = 2000) String description,
 	@NotNull @Min(-90) @Max(90) Double lat,
