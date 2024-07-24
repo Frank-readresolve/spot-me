@@ -12,8 +12,8 @@ import jakarta.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-@Constraint(validatedBy = SpotUniqueValidator.class)
-public @interface SpotUnique {
+@Constraint(validatedBy = SpotCreateUniqueValidator.class)
+public @interface SpotCreateUnique {
 
     String message() default "";
 

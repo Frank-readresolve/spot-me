@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.simplon.spotmebusiness.dtos.SpotCreate;
+import co.simplon.spotmebusiness.dtos.SpotUpdate;
 import co.simplon.spotmebusiness.dtos.SpotView;
 import co.simplon.spotmebusiness.services.SpotService;
 import jakarta.validation.Valid;
@@ -38,6 +40,12 @@ public class SpotController {
     @DeleteMapping("/{id}")
     void deleteOne(@PathVariable("id") Long id) {
 	service.deleteOne(id);
+    }
+
+    @PutMapping("/{id}")
+    void updateOne(@PathVariable("id") Long id,
+	    @Valid @ModelAttribute SpotUpdate inputs) {
+	service.updateOne(id, inputs);
     }
 
 }

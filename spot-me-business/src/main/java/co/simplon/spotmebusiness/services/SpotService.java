@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import co.simplon.spotmebusiness.dtos.SpotCreate;
+import co.simplon.spotmebusiness.dtos.SpotUpdate;
 import co.simplon.spotmebusiness.dtos.SpotView;
 import co.simplon.spotmebusiness.entities.Spot;
 import co.simplon.spotmebusiness.repositories.SpotRepository;
@@ -64,6 +65,15 @@ public class SpotService {
 
     public void deleteOne(Long id) {
 	spots.deleteById(id);
+    }
+
+    public void updateOne(Long id, SpotUpdate inputs) {
+	Spot entity = spots.findById(id).get();
+	entity.setName(inputs.name());
+	entity.setDescription(inputs.description());
+	entity.setLat(inputs.lat());
+	entity.setLng(inputs.lng());
+	spots.save(entity);
     }
 
 }

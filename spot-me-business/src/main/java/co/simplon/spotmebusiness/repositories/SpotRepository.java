@@ -16,4 +16,7 @@ public interface SpotRepository extends JpaRepository<Spot, Long> {
     boolean existsByNameIgnoreCaseAndLatAndLng(String name, double lat,
 	    double lng);
 
+    boolean existsByNameIgnoreCaseAndLatAndLngAndIdNot(String name, double lat,
+	    double lng, Long id);
+
 }
